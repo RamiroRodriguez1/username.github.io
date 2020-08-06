@@ -14,37 +14,61 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <style>
-    html, body{
-      height: 100%;
-    }
-
+    html,
     body {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-      align-items: center;
-      padding-top: 40px;
-      padding-bottom: 40px;
-      background-color: #f5f5f5;
+      background-color: #fafafa;
     }
-
-    .signin {
-      width: 100%;
-      max-width: 330px;
-      padding: 15px;
-      margin: auto;
+    label{
+      padding-top: 10px;
+      
+      
+    }
+    legend{
+      font-family: Arial, Helvetica, sans-serif ;
+      color: #d61c6c; 
+      font-size: 2em ;
+    }
+    img{
+      width: 35%;
+      float: left;
+    }
+    .texto{
+      color: #99999e;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    }
+    #campos{
+      padding-top: 15%;
+    }
+    #user{
+      padding-left: 2%;
     }
   </style>
 </head>
 
 <body class="text-center">
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 1 (Fecha de entrega: 16/08/2020) -> Punto 3 y 4.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+  <div >
+    <img src="img/login.png" alt="eComercio" class="rounded img-fluid"> 
+    
+  </div>
+
+  <div id="campos">
+     <legend>Por favor inicia sesión</legend>
+    <form action="#" method="POST" name="form"  >
+      <fieldset>
+        <label  class="texto" for="usuario">Usuario: </label>
+        <input id="usuario" type="text" name="usuario" placeholder="Ingrese su usuario" required>
+      </fieldset>
+      <fieldset>
+        <label class="texto" for="contraseña">Contraseña:</label>
+        <input id="contraseña" type="password" name="contraseña" placeholder="Ingrese su contraseña" required>
+      </fieldset>
+      <fieldset>
+        <input type="checkbox" name="recuerdame" id="recuerdo"><label for="recuerdo"> Mantener sesión iniciada en el dispositivo</label> 
+    </fieldset>
+      <fieldset>
+        <input type="submit" onClick="sessionStorage.setItem('loggeado', '1'), redirect()"  name="init" value="Iniciar sesión" >
+      </fieldset>
+	  </form>
   </div>
 
   <script src="js/init.js"></script>
