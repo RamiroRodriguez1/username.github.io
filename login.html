@@ -6,6 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
+	<meta name="google-signin-client_id" content="198506745671-o86tnkefhk80eucileen9i0p1ot1les1.apps.googleusercontent.com">
   <title>eMercado - Todo lo que busques está aquí</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
@@ -14,14 +15,8 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <style>
-    html,
     body {
       background-color: #fafafa;
-    }
-    label{
-      padding-top: 10px;
-      
-      
     }
     legend{
       font-family: Arial, Helvetica, sans-serif ;
@@ -30,47 +25,43 @@
     }
     img{
       width: 35%;
-      float: left;
+      
     }
     .texto{
       color: #99999e;
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
     }
-    #campos{
-      padding-top: 15%;
-    }
-    #user{
-      padding-left: 2%;
-    }
+
   </style>
 </head>
-
-<body class="text-center">
-  <div >
-    <img src="img/login.png" alt="eComercio" class="rounded img-fluid"> 
-    
+   <img src="img/login.png" alt="eComercio" class="rounded img-fluid"> 
+	  </div>
+<body >
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <div id="campos">
+          <legend>Por favor inicia sesión</legend>
+          <form action="#" method="POST" name="form" id="formulario" >
+            <fieldset>
+              <label  class="texto" for="usuario">Usuario: </label>
+              <input id="usuario" type="text" name="usuario" placeholder="Ingrese su usuario" required>
+            </fieldset>
+            <fieldset>
+              <label class="texto" for="contraseña">Contraseña:</label>
+              <input id="contraseña" type="password" name="contraseña" placeholder="Ingrese su contraseña" required>
+            </fieldset>
+            <fieldset>
+              <input type="checkbox" name="recuerdame" id="recuerdo" value="recuerdo"><label for="recuerdo"> Mantener sesión iniciada en el dispositivo</label> 
+            </fieldset>
+            <fieldset>
+              <input type="submit" name="init" value="Iniciar sesión" >
+            </fieldset>
+	        </form>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div id="campos">
-     <legend>Por favor inicia sesión</legend>
-    <form action="#" method="POST" name="form"  >
-      <fieldset>
-        <label  class="texto" for="usuario">Usuario: </label>
-        <input id="usuario" type="text" name="usuario" placeholder="Ingrese su usuario" required>
-      </fieldset>
-      <fieldset>
-        <label class="texto" for="contraseña">Contraseña:</label>
-        <input id="contraseña" type="password" name="contraseña" placeholder="Ingrese su contraseña" required>
-      </fieldset>
-      <fieldset>
-        <input type="checkbox" name="recuerdame" id="recuerdo"><label for="recuerdo"> Mantener sesión iniciada en el dispositivo</label> 
-    </fieldset>
-      <fieldset>
-        <input type="submit" onClick="sessionStorage.setItem('loggeado', '1'), redirect()"  name="init" value="Iniciar sesión" >
-      </fieldset>
-	  </form>
-  </div>
-
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
 </body>

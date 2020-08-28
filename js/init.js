@@ -7,46 +7,63 @@ const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/pro
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 
-var showSpinner = function(){
+var showSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "block";
 }
 
-var hideSpinner = function(){
+var hideSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "none";
 }
 
-var getJSONData = function(url){
-    var result = {};
-    showSpinner();
-    return fetch(url)
+var getJSONData = function (url) {
+  var result = {};
+  showSpinner();
+  return fetch(url)
     .then(response => {
       if (response.ok) {
         return response.json();
-      }else{
+      } else {
         throw Error(response.statusText);
       }
     })
-    .then(function(response) {
-          result.status = 'ok';
-          result.data = response;
-          hideSpinner();
-          return result;
+    .then(function (response) {
+      result.status = 'ok';
+      result.data = response;
+      hideSpinner();
+      return result;
     })
-    .catch(function(error) {
-        result.status = 'error';
-        result.data = error;
-        hideSpinner();
-        return result;
+    .catch(function (error) {
+      result.status = 'error';
+      result.data = error;
+      hideSpinner();
+      return result;
     });
 }
 
 
- var b = "login.html";
-  var a = window.location.href;
-	var data = sessionStorage.getItem('loggeado');
-  if(!a.includes(b) && data!=1){  
-	  window.location.href="login.html";
+var b = "login.html";
+var a = window.location.href;
+var session = sessionStorage.getItem('usuario');
+var local = localStorage.getItem("usuario");
+var data = sessionStorage.getItem('logged');
+var data2 = localStorage.getItem("logged")
+if (!a.includes(b) && data2 != "true" && data != "true") {
+  window.location.href = "login.html";
+} else if(!a.includes(b)){
+  if (sessionStorage.getItem('logged') == "true") {
+    var user = session;
+  } else {
+    var user = local;
   }
-document.addEventListener("DOMContentLoaded", function(e){
- 
+	document.getElementById("menu").innerHTML += `	
+	<ul> 
+ 		<li><a id="usuario" href="my-profile.html">`+ user + `</a>
+  	<ul>
+ 		<li><a onclick="localStorage.clear(),sessionStorage.clear()" href="login.html">Cerrar Sesion</a></li>
+ 	</ul>
+	</ul>		 
+`;
+}
+document.addEventListener("DOMContentLoaded", function (e) {
+
 });

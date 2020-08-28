@@ -139,3 +139,51 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+
+
+
+
+#menu ul {
+ list-style:none;
+ margin:0;
+ padding:0;
+}
+
+/* items del menu */
+
+#menu ul li {
+ background-color:#343a40;
+}
+
+/* enlaces del menu */
+
+#menu ul a {
+ display:block; 
+ padding:6px; 
+}
+
+/* items del menu */
+
+#menu ul li {
+ position:relative;
+ 
+}
+
+/* menu desplegable */
+#menu ul ul {
+ display:none;
+ position:absolute;
+ top:100%;
+}
+/* items del menu desplegable */
+
+#menu ul ul li {
+ float:none;
+ width:150px
+}
+
+/* items del menu desplegable al pasar el ratón */
+#menu ul li:hover > ul {
+ display:block;
+}
