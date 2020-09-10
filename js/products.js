@@ -42,13 +42,12 @@ function showproductsList(currentViewCriteria) {
     let htmlContentToAppend = "";
     for (let i = 0; i < currentproductsArray.length; i++) {
         let product = currentproductsArray[i];
-        let input = document.getElementById("searchbar").value
-        input = input.toLowerCase();
+        let input = document.getElementById("searchbar").value.toLowerCase();
         if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount)) && product.name.toLowerCase().startsWith(input)) {
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount)) && product.name.toLowerCase().includes(input)) {
             if (currentViewCriteria == list) {
                 htmlContentToAppend += `
-                <a href="#" class="mb-4 shadow-sm custom-card">
+                <a href="product-info.html?name=`+product.name+`" class="mb-4 shadow-sm custom-card">
                     <div class="list-group-item list-group-item-action">
                         <div class="row">
                             <div class="col-3">
@@ -69,7 +68,7 @@ function showproductsList(currentViewCriteria) {
             } else {
                 htmlContentToAppend += `
                 <div class="col-md-4 ">
-                    <a href="#" class="card mb-4 shadow-sm custom-card">
+                    <a href="product-info.html?name=`+product.name+`" class="card mb-4 shadow-sm custom-card">
                         <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
                         <h4 class="m-3">`+ product.name + `</h4>
                         <h6 class="m-3 text-muted">` + product.soldCount + ` articulos vendidos</h6>
@@ -156,6 +155,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
             maxCount = undefined;
         }
 
-        showproductsList();
+        showproductsList(currentViewCriteria);
     });
 });
